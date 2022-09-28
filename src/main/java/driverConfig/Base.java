@@ -1,3 +1,5 @@
+package driverConfig;
+
 import driverConfig.BROWSER;
 import driverConfig.DriverFactory;
 import org.junit.AfterClass;
@@ -16,5 +18,9 @@ public class Base {
     @AfterClass
     public static void end(){
         driver.quit();
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
     }
 }

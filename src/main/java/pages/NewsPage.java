@@ -1,5 +1,7 @@
 package pages;
 
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-
 
 
 public class NewsPage {
@@ -21,7 +22,7 @@ public class NewsPage {
     WebElement listNews;
 
     public NewsPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public void clickBlogButton() {
@@ -29,19 +30,23 @@ public class NewsPage {
     }
 
     public void printHrefListBlogMenu() {
-        for(WebElement l:listBlogMenu){
+        for (WebElement l : listBlogMenu) {
             System.out.println(l.findElement(By.tagName("a")).getAttribute("href"));
         }
     }
-    public void clickBlogMenu(String name){
-        for(WebElement l:listBlogMenu){
-            if (l.findElement(By.tagName("a")).getAttribute("href").contains(name));
+
+    @Step("Blog button click {name}")
+    public void clickBlogMenu(String name) {
+        for (WebElement l : listBlogMenu) {
+            if (l.findElement(By.tagName("a")).getAttribute("href").contains(name)) ;
             l.click();
             break;
         }
     }
 
-    public int getListNewsSize(){
+    @Step("Return list of news size")
+    @Attachment
+    public int getListNewsSize() {
         return listNews.findElements(By.tagName("li")).size();
 
 
