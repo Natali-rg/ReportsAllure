@@ -25,13 +25,13 @@ public class ShakhtarForm {
         List<WebElement> list = formRow.findElements(By.xpath("//div[@class='form__row']"));
         //       System.out.println(list.size());
         for (WebElement l : list) {
-            l.findElement(By.name("email")).sendKeys("turchyna.natali82@gmail.com");
+            l.findElement(By.name("email")).sendKeys("");
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            l.findElement(By.xpath("//*[@id=\"commonFormLogin\"]/div[2]/input")).sendKeys("na10081982");
+            l.findElement(By.xpath("//*[@id=\"commonFormLogin\"]/div[2]/input")).sendKeys("");
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
