@@ -1,6 +1,7 @@
 import driverConfig.Base;
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
+import models.AGENTS;
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 import pages.NewsPage;
@@ -19,6 +20,7 @@ public class BlogPageTest extends Base {
 
     @BeforeClass
     public static void before(){
+        server.addRequestFilter(AGENTS.setUserIphone());
         driver.get(MAIN_URL);
         newsPage=new NewsPage(driver);
     }
