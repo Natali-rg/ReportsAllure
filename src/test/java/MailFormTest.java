@@ -29,6 +29,7 @@ public class MailFormTest extends Base {
 
     @Before
     public void create(){
+
         if(form==null){
             form=new MailForm(driver);
         }
